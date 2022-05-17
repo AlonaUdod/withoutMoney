@@ -1,0 +1,40 @@
+.home {
+    color: #fff;
+    text-align: center;
+}
+
+p{
+    font-size: 65px;
+}
+
+.circle {
+    border-radius: 70%;
+    border: 3px solid;
+    height: 350px;
+    width: 350px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.circle__yellow {
+    border-color: #FFF00F;
+    margin-left: 100px;
+}
+
+.circle__blue {
+    border-color: #000FFF;
+}
+
+.hand {
+    width: 500px;
+    height: 500px;
+}
+
+.left_hand {
+    background: url("../foto/left_hand.png") no-repeat center/contain;
+    background-size: 91%;
+}
+
+.right_hand {
+    background: url("../foto/right_hand.png") no-repeat center/contain;
+}
