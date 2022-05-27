@@ -31,10 +31,10 @@ p{
 }
 
 .left_hand {
-    background: url("../foto/left_hand.png") no-repeat center/contain;
+    background: url("../photo/left_hand.png") no-repeat center/contain;
     background-size: 91%;
 }
 
 .right_hand {
-    background: url("../foto/right_hand.png") no-repeat center/contain;
+    background: url("../photo/right_hand.png") no-repeat center/contain;
 }

@@ -1,6 +1,6 @@
-package entity;
+package com.withoutmoney.entity;
 
-import enums.Role;
+import com.withoutmoney.enums.Role;
 
 
 import javax.persistence.GeneratedValue;

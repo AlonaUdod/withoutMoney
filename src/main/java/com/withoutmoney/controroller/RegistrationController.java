@@ -1,4 +1,4 @@
-package controroller;
+package com.withoutmoney.controroller;
 
 public class RegistrationController {
 }
