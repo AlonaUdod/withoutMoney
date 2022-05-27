@@ -21,8 +21,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping()
-    public String getPersonList(Model model) {
+    @GetMapping("/getPersonList")
+    public String getPersonList(Model model) throws SQLException {
         model.addAttribute("people", userService.getPersonList());
         return "getPersonList";
     }
@@ -40,14 +40,13 @@ public class UserController {
     }
 
     @PostMapping("/new")
-    public String create(@ModelAttribute("user")@Valid User user,
-                         BindingResult bindingResult) {
+    public String create(@Valid User user,
+                         BindingResult bindingResult) throws SQLException {
         if (bindingResult.hasErrors())
             return "new";
 
         userService.save(user);
         return "redirect:/show";
-       // return null;
     }
 
     @GetMapping("/{mail}/edit")

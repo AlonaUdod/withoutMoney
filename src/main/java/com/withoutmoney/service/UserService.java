@@ -16,7 +16,7 @@ public class UserService {
     }
 
 
-    public List<User> getPersonList() {
+    public List<User> getPersonList() throws SQLException {
 
         return userSource.getPersonList();
 
@@ -28,7 +28,7 @@ public class UserService {
 
     }
 
-    public void save(User user) {
+    public void save(User user) throws SQLException {
 
         userSource.save(user);
 

@@ -95,8 +95,6 @@ public class User {
         this.activationCode = activationCode;
     }
 
-    public User(String firstName, String lastName, String email, Role role, String password, String activationCode) {
-    }
 
 
 }

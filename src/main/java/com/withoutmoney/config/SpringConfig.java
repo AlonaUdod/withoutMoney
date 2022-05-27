@@ -11,7 +11,6 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 @Configuration
-@PropertySource("classpath:application.properties")
 public class SpringConfig {
 
     @Bean
