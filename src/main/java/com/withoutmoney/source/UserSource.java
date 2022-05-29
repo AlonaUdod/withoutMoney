@@ -4,6 +4,8 @@ import com.withoutmoney.entity.User;
 import com.withoutmoney.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+
 
 import java.sql.*;
 import java.util.List;
@@ -21,6 +23,11 @@ public class UserSource {
         return jdbcTemplate.query("SELECT * FROM users", new UserMapper());
     }
 
+    public User getUserById(int id) throws SQLException{
+        return jdbcTemplate.query("SELECT * FROM users WHERE id=" + "'" + id + "'", new UserMapper())
+                .stream().findAny().orElse(null);
+    }
+
     public User show(String email) throws SQLException{
         return jdbcTemplate.query("SELECT * FROM users WHERE email=" + "'" + email + "'", new UserMapper())
                 .stream().findAny().orElse(null);
@@ -31,13 +38,13 @@ public class UserSource {
         user.getEmail(), user.getFirstName(), user.getLastName(), user.getPassword());
     }
 
-    public void update(String email, User updatedUser) {
-      jdbcTemplate.update("UPDATE users SET firstName=?, lastName=?, password=?, role=? WHERE email=?", updatedUser.getFirstName(),
-              updatedUser.getLastName(), updatedUser.getPassword(), updatedUser.getRole(), email);
+    public void update(int id, User updatedUser) throws SQLException{
+      jdbcTemplate.update("UPDATE users SET firstName=?, lastName=?, password=?, role=?, email=? WHERE id=?", updatedUser.getFirstName(),
+              updatedUser.getLastName(), updatedUser.getPassword(), updatedUser.getRole(), updatedUser.getEmail(), id);
     }
 
-    public void delete(String email) throws SQLException{
-        jdbcTemplate.update("DELETE FROM users WHERE email=" + email);
+    public void delete(int id) throws SQLException{
+        jdbcTemplate.update("DELETE FROM users WHERE id=" + id);
     }
 
 }

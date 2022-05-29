@@ -17,31 +17,27 @@ public class UserService {
 
 
     public List<User> getPersonList() throws SQLException {
-
         return userSource.getPersonList();
+    }
 
+    public User getUserById(int id) throws SQLException{
+        return userSource.getUserById(id);
     }
 
     public User show(String email) throws SQLException {
-
         return userSource.show(email);
-
     }
 
     public void save(User user) throws SQLException {
-
         userSource.save(user);
-
     }
 
-    public void update(String email, User updatedUser) {
-        userSource.update(email, updatedUser);
+    public void update(int id, User updatedUser) throws SQLException {
+        userSource.update(id, updatedUser);
     }
 
-    public void delete(String email) throws SQLException {
-
-        userSource.delete(email);
-
+    public void delete(int id) throws SQLException {
+        userSource.delete(id);
     }
 
 }

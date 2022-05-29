@@ -27,6 +27,12 @@ public class UserController {
         return "getPersonList";
     }
 
+    @GetMapping("/{id}")
+    public String getUserById(@PathVariable("id") int id, Model model) throws SQLException {
+        model.addAttribute("user", userService.getUserById(id));
+        return "getUserById";
+    }
+
     @GetMapping("/{email}")
     public String show(@PathVariable("email") String mail, Model model) throws SQLException {
         model.addAttribute("user", userService.show(mail));
@@ -55,19 +61,19 @@ public class UserController {
         return "edit";
     }
 
-    @PatchMapping("/{mail}")
+    @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult,
-                         @PathVariable("mail") String mail) {
+                         @PathVariable("id") int id) throws SQLException {
         if (bindingResult.hasErrors())
             return "edit";
 
-        userService.update(mail, user);
+        userService.update(id, user);
         return "redirect:/people";
     }
 
-    @DeleteMapping("/{mail}")
-    public String delete(@PathVariable("mail") String mail) throws SQLException {
-        userService.delete(mail);
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) throws SQLException {
+        userService.delete(id);
         return "redirect:/show";
     }
 }

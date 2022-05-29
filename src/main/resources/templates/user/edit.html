@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>New person</title>
+    <meta charset="UTF-8">
+    <title>Редагування користувача</title>
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/new}" th:object="${user}">
+<form th:method="PATCH" th:action="@{{id}(id=${user.getId()})}" th:object="${user}">
     <label for="firstName">Введіть ім'я: </label>
     <input type="text" th:field="*{firstName}" id="firstName"/>
     <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</div>
@@ -20,15 +19,15 @@
     <input type="text" th:field="*{email}" id="email"/>
     <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</div>
     <br/>
-<!--    <label for="firstName">Введіть роль: </label>-->
-<!--    <input type="text" th:field="*{role}" id="role"/>-->
-<!--    <div style="color:red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}">Name Error</div>-->
-<!--    <br/>-->
+    <!--    <label for="firstName">Введіть роль: </label>-->
+    <!--    <input type="text" th:field="*{role}" id="role"/>-->
+    <!--    <div style="color:red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}">Name Error</div>-->
+    <!--    <br/>-->
     <label for="firstName">Введіть пароль: </label>
     <input type="text" th:field="*{password}" id="password"/>
     <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</div>
     <br/>
-    <input type="submit" value="Create!"/>
+    <input type="submit" value="Update!"/>
 </form>
 
 </body>
