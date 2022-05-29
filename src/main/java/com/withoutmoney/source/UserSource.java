@@ -4,7 +4,6 @@ import com.withoutmoney.entity.User;
 import com.withoutmoney.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 
 
 import java.sql.*;
@@ -18,6 +17,7 @@ public class UserSource {
     public UserSource(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+
 
     public List<User> getPersonList() throws SQLException{
         return jdbcTemplate.query("SELECT * FROM users", new UserMapper());

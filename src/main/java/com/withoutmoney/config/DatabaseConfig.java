@@ -29,9 +29,6 @@ public class DatabaseConfig {
         return flyway::migrate;
     }
 
-   @Bean
-    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-        return new JdbcTemplate(dataSource);
-    }
+
 
 }

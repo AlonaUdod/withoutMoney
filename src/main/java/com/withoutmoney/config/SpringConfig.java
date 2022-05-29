@@ -15,8 +15,6 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-
-
     @Bean
     public ClassLoaderTemplateResolver userClassLoaderTemplateResolver() {
         ClassLoaderTemplateResolver classLoaderTemplateResolver = new ClassLoaderTemplateResolver();
@@ -42,14 +40,14 @@ public class SpringConfig {
         return dataSource;
     }
 
-//    @Bean
-//    public JdbcTemplate jdbcTemplate() {
-//        return new JdbcTemplate(dataSource());
-//    }
+    @Bean
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
 
     @Bean
     public UserSource userSource(){
-        return new UserSource(new JdbcTemplate(dataSource()));
+        return new UserSource(jdbcTemplate(dataSource()));
     }
 
     @Bean
