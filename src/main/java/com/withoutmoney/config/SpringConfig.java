@@ -1,7 +1,9 @@
 package com.withoutmoney.config;
 
 import com.withoutmoney.entity.User;
+import com.withoutmoney.service.GoodsService;
 import com.withoutmoney.service.UserService;
+import com.withoutmoney.source.GoodsSource;
 import com.withoutmoney.source.UserSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -53,5 +55,15 @@ public class SpringConfig {
     @Bean
     public UserService userService () {
         return new UserService(userSource());
+    }
+
+    @Bean
+    public GoodsSource goodsSource(){
+        return new GoodsSource(jdbcTemplate((dataSource())));
+    }
+
+    @Bean
+    public GoodsService goodsService(){
+        return new GoodsService(goodsSource());
     }
 }

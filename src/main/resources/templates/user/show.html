@@ -5,8 +5,8 @@
     <title>Show</title>
 </head>
 <body>
-<p th:text="${user.getfirstName() + ' ' + user.getlastName()}">VALUE</p>
-<p th:text="${'Email: ' + person.getEmail()}">VALUE</p>
+<p th:text="${user.getFirstName() + ' ' + user.getLastName()}">VALUE</p>
+<p th:text="${'Email: ' + user.getEmail()}">VALUE</p>
 <p th:text="${user.getId()}">VALUE</p>
 
 <a th:href="@{{id}/edit(id=${user.getId()})}">Редагувати</a>

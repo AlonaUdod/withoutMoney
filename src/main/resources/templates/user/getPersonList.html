@@ -6,15 +6,15 @@
 </head>
 <body>
 
-<div th:each="user : ${getPersonLst}">
+<div th:each="user : ${users}">
   <a th:href="@{{id}(id=${user.getId()})}"
-     th:text="${user.getfirstName() + ' ' + user.getlastName()}">user</a>
+     th:text="${user.getFirstName() + ' ' + user.getLastName()}">user</a>
 </div>
 
 <br/>
 <hr/>
 
-<a href="/new">Створити новго користувача</a>
+<a href="/new">Створити нового користувача</a>
 
 </body>
 </html>

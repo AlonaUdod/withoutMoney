@@ -24,14 +24,14 @@ public class UserController {
 
     @GetMapping("/getPersonList")
     public String getPersonList(Model model) throws SQLException {
-        model.addAttribute("people", userService.getPersonList());
+        model.addAttribute("users", userService.getPersonList());
         return "getPersonList";
     }
 
     @GetMapping("/{id}")
     public String getUserById(@PathVariable("id") int id, Model model) throws SQLException {
         model.addAttribute("user", userService.getUserById(id));
-        return "getUserById";
+        return "show";
     }
 
     @GetMapping("/{email}")
@@ -53,7 +53,7 @@ public class UserController {
             return "new";
 
         userService.save(user);
-        return "redirect:/show";
+        return "redirect:/getPersonList";
     }
 
     @GetMapping("/{mail}/edit")
@@ -76,5 +76,10 @@ public class UserController {
     public String delete(@PathVariable("id") int id) throws SQLException {
         userService.delete(id);
         return "redirect:/show";
+    }
+
+    @GetMapping("/about")
+    public String about(){
+        return "about";
     }
 }

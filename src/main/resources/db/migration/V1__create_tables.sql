@@ -9,6 +9,7 @@ create table users (
 
 insert into users values (1, 'Аліса', 'Герольд', 'alica@gmail.com', '111', 'ADMIN')
 
--- insert into users values (2,'Том','Тіщенко','tom@gmail.com','222','USER')
---
--- insert into users values (3,'Аліна','Дивнич','alina@gmail.com','333','GUEST')
+insert into users values (2,'Том','Тіщенко','tom@gmail.com','222','USER')
+
+insert into users values (3,'Аліна','Дивнич','alina@gmail.com','333','GUEST')
+2
