@@ -69,7 +69,7 @@ public class UserController {
             return "edit";
 
         userService.update(id, user);
-        return "redirect:/people";
+        return "redirect:/show";
     }
 
     @DeleteMapping("/{id}")
