@@ -10,11 +10,15 @@
 
 <body>
 <form th:method="POST" th:action="@{/newGoods}" th:object="${goods}">
-    <label for="firstName">Введіть назву: </label>
-    <input type="text" th:field="*{name}" id="firstName"/>
+    <label for="user_id">Введіть USER: </label>
+    <input type="text" th:field="*{user_id}" id="user_id"/>
+    <div style="color:red" th:if="${#fields.hasErrors('user_id')}" th:errors="*{user_id}">Name Error</div>
+    <br/>
+    <label for="name">Введіть назву: </label>
+    <input type="text" th:field="*{name}" id="name"/>
     <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
     <br/>
-    <label for="firstName">Введіть опис пропозиції: </label>
+    <label for="description">Введіть опис пропозиції: </label>
     <input type="text" th:field="*{description}" id="description"/>
     <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</div>
     <br/>
@@ -31,8 +35,8 @@
             Послуга
         </label>
     </div>
-    <h4>Бажаєте завантажити фотографію?</h4>
 
+    <h4>Бажаєте завантажити фотографію?</h4>
 
     <input type="submit" value="Створити!"/>
 </body>

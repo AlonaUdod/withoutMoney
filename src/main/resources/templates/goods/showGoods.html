@@ -5,9 +5,12 @@
   <title>Show</title>
 </head>
 <body>
+
+<div>
 <p th:text="${goods.getName}">VALUE</p>
 <p th:text="${goods.getDescription}">VALUE</p>
 
+</div>
 
 <a th:href="@{/goodsEdit/{id}/edit(id=${goods.getId()})}">Редагувати</a>
 

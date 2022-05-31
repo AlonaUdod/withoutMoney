@@ -7,11 +7,11 @@
 <body>
 
 <form th:method="PATCH" th:action="@{/goodsUpdate/{id}(id=${goods.getId()})}" th:object="${goods}">
-    <label for="firstName">Введіть назву: </label>
-    <input type="text" th:field="*{name}" id="firstName"/>
+    <label for="name">Введіть назву: </label>
+    <input type="text" th:field="*{name}" id="name"/>
     <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
     <br/>
-    <label for="firstName">Введіть опис пропозиції: </label>
+    <label for="description">Введіть опис пропозиції: </label>
     <input type="text" th:field="*{description}" id="description"/>
     <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</div>
     <br/>
