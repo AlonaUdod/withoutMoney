@@ -23,6 +23,8 @@ public class Goods {
     private String description;
     private Type type;
 
+    private String photo;
+
 
 
     public Goods() {
@@ -68,5 +70,11 @@ public class Goods {
         this.type = type;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
 
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 }

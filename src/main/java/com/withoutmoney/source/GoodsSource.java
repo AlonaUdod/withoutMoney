@@ -37,8 +37,9 @@ public class GoodsSource {
     }
 
     public void update(int id,Goods updatedGoods) throws SQLException{
+        String type = String.valueOf(updatedGoods.getType());
         jdbcTemplate.update("UPDATE goods SET user=?, name=?, description=?, type=? WHERE id=?", updatedGoods.getUser_id(),
-                updatedGoods.getName(), updatedGoods.getDescription(), updatedGoods.getType(), id);
+                updatedGoods.getName(), updatedGoods.getDescription(), type, id);
     }
 
     public void delete(int id) throws SQLException{

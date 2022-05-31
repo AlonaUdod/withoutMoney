@@ -20,12 +20,8 @@ public class UserService {
         return userSource.getPersonList();
     }
 
-    public User getUserById(int id) throws SQLException{
-        return userSource.getUserById(id);
-    }
-
-    public User show(String email) throws SQLException {
-        return userSource.show(email);
+    public User show(int id) throws SQLException {
+        return userSource.show(id);
     }
 
     public void save(User user) throws SQLException {

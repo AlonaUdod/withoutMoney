@@ -17,7 +17,7 @@ public class GoodsMapper implements RowMapper<Goods> {
         goods.setUser_id(rs.getInt("user_id"));
         goods.setName(rs.getString("name"));
         goods.setDescription(rs.getString("description"));
-        goods.setType(Type.valueOf(rs.getString("role")));
+        goods.setType(Type.valueOf(rs.getString("type")));
 
         return goods;
     }

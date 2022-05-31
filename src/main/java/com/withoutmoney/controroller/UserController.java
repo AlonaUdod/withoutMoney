@@ -25,18 +25,13 @@ public class UserController {
     @GetMapping("/getPersonList")
     public String getPersonList(Model model) throws SQLException {
         model.addAttribute("users", userService.getPersonList());
+
         return "getPersonList";
     }
 
-    @GetMapping("/{id}")
-    public String getUserById(@PathVariable("id") int id, Model model) throws SQLException {
-        model.addAttribute("user", userService.getUserById(id));
-        return "show";
-    }
-
-    @GetMapping("/{email}")
-    public String show(@PathVariable("email") String mail, Model model) throws SQLException {
-        model.addAttribute("user", userService.show(mail));
+    @GetMapping("/userShow/{id}")
+    public String show(@PathVariable("id") int id, Model model) throws SQLException {
+        model.addAttribute("user", userService.show(id));
         return "show";
     }
 
@@ -53,33 +48,38 @@ public class UserController {
             return "new";
 
         userService.save(user);
-        return "redirect:/getPersonList";
+        return "redirect:/index";
     }
 
-    @GetMapping("/{mail}/edit")
-    public String edit(Model model, @PathVariable("mail") String mail) throws SQLException {
-        model.addAttribute("person", userService.show(mail));
+    @GetMapping("/userEdit/{id}/edit")
+    public String edit(Model model, @PathVariable("id") int id) throws SQLException {
+        model.addAttribute("user", userService.show(id));
         return "edit";
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/userUpdate/{id}")
     public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult,
                          @PathVariable("id") int id) throws SQLException {
         if (bindingResult.hasErrors())
             return "edit";
 
         userService.update(id, user);
-        return "redirect:/show";
+        return "redirect:/userShow/{id}";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/userDelete/{id}")
     public String delete(@PathVariable("id") int id) throws SQLException {
         userService.delete(id);
-        return "redirect:/show";
+        return "redirect:/getPersonList";
     }
 
     @GetMapping("/about")
     public String about(){
         return "about";
+    }
+
+   @GetMapping("index")
+    public String index(){
+        return "index";
     }
 }

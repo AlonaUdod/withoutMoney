@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>New person</title>
+
+    <title>Реєстрація</title>
 </head>
 <body>
 
@@ -28,7 +29,7 @@
     <input type="text" th:field="*{password}" id="password"/>
     <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</div>
     <br/>
-    <input type="submit" value="Create!"/>
+    <input type="submit" value="Створити!"/>
 </form>
 
 </body>

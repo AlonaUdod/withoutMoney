@@ -1,9 +1,7 @@
 package com.withoutmoney.controroller;
 
 import com.withoutmoney.entity.Goods;
-import com.withoutmoney.entity.User;
 import com.withoutmoney.service.GoodsService;
-import com.withoutmoney.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class GoodsController {
@@ -25,11 +25,12 @@ public class GoodsController {
 
     @GetMapping("/getGoodsList")
     public String getGoodsList(Model model) throws SQLException{
-        model.addAttribute("goods", goodsService.getGoodsList());
+        model.addAttribute("goodsList", goodsService.getGoodsList());
         return "getGoodsList";
     }
 
-    @GetMapping("/{id}")
+
+    @GetMapping("/getGoodsById/{id}")
     public String getUserById(@PathVariable("id") int id, Model model) throws SQLException {
         model.addAttribute("goods", goodsService.getGoodsById(id));
         return "showGoods";
@@ -51,13 +52,13 @@ public class GoodsController {
         return "redirect:/getGoodsList";
     }
 
-    @GetMapping("/{id}/editGoods")
+    @GetMapping("/goodsEdit/{id}/editGoods")
     public String edit(Model model, @PathVariable("id") int id) throws SQLException {
         model.addAttribute("goods", goodsService.show(id));
         return "editGoods";
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/goodsUpdate/{id}")
     public String update(@ModelAttribute("goods") @Valid Goods goods, BindingResult bindingResult,
                          @PathVariable("id") int id) throws SQLException {
         if (bindingResult.hasErrors())
@@ -67,10 +68,10 @@ public class GoodsController {
         return "redirect:/showGoods";
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/goodsDelete/{id}")
     public String delete(@PathVariable("id") int id) throws SQLException {
         goodsService.delete(id);
-        return "redirect:/showGoods";
+        return "redirect:/getGoodsList";
     }
 
 }

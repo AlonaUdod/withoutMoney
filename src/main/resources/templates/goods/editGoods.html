@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редагування користувача</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/goodsUpdate/{id}(id=${goods.getId()})}" th:object="${goods}">
+    <label for="firstName">Введіть назву: </label>
+    <input type="text" th:field="*{name}" id="firstName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br/>
+    <label for="firstName">Введіть опис пропозиції: </label>
+    <input type="text" th:field="*{description}" id="description"/>
+    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</div>
+    <br/>
+    <h4>Який тип вашої пропозиції?</h4>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="type" value="SERVICE">
+        <label class="form-check-label" >
+            Річ
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="type" value="PRODUCT" checked>
+        <label class="form-check-label" >
+            Послуга
+        </label>
+    </div>
+    <h4>Бажаєте завантажити фотографію?</h4>
+
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>
