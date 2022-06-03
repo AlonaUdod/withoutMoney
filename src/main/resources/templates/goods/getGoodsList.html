@@ -6,6 +6,7 @@
 </head>
 <body>
 <div th:each="goods : ${goodsList}">
+    <img th:src="@{/photo/{photo}(photo = ${goods.photo})}">
     <a th:href="@{/getGoodsById/{id}(id=${goods.getId()})}"
        th:text="${goods.getName()}">goods</a>
 </div>

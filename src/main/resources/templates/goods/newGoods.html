@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<form th:method="POST" th:action="@{/newGoods}" th:object="${goods}">
+<form th:method="POST" th:action="@{/newGoods}" th:object="${goods}" method="post" enctype="multipart/form-data">
     <label for="user_id">Введіть USER: </label>
     <input type="text" th:field="*{user_id}" id="user_id"/>
     <div style="color:red" th:if="${#fields.hasErrors('user_id')}" th:errors="*{user_id}">Name Error</div>
@@ -37,26 +37,10 @@
     </div>
 
     <h4>Бажаєте завантажити фотографію?</h4>
-<!--    <br/>-->
-<!--    <form  method="post" enctype="multipart/form-data">-->
-<!--        <input type="file" name="file">-->
-<!--    </form>-->
-<!--    <br/>-->
-
-
-    <form  method="post" th:action="@{/newGoods}" th:object="${goods}"enctype="multipart/form-data">
-        <input type="file" name="file">
-        той код що і був
-    </form>
-
-        <div>
-        <#if goods.photo??>
-            <img src="/img/${goods.photo}">
-        </#if>
-        </div>
-    <br/>
+    <input type="file" name="file" >
 
     <input type="submit" value="Створити!"/>
+</form>
 </body>
 
 </html>
