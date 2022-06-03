@@ -33,8 +33,9 @@ public class GoodsSource {
 
     public void save(Goods goods) throws SQLException{
         String type = String.valueOf(goods.getType());
-        jdbcTemplate.update("INSERT INTO goods (user_id, name, description, type)" + "VALUES(?, ?, ?, ?)",
-                goods.getUser_id(), goods.getName(), goods.getDescription(), type);
+        jdbcTemplate.update("INSERT INTO goods (user_id, name, description, type, photo)" +
+                        "VALUES(?, ?, ?, ?, ?)",
+                goods.getUser_id(), goods.getName(), goods.getDescription(), type, goods.getPhoto());
     }
 
     public void update(int id,Goods updatedGoods) throws SQLException{

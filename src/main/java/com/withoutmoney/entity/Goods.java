@@ -26,7 +26,6 @@ public class Goods {
     private String photo;
 
 
-
     public Goods() {
     }
 

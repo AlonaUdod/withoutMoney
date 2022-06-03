@@ -3,7 +3,8 @@ create table goods (
     user_id        bigint not null,
     name        varchar(150) not null,
     description varchar  (255)   not null,
-    type        varchar (20) not null
+    type        varchar (20) not null,
+    photo       varchar  (255)
 );
 
 insert into goods values (1, 2, 'Марка "руский военый корабль. Всьо"',

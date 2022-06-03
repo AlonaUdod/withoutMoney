@@ -18,6 +18,7 @@ public class GoodsMapper implements RowMapper<Goods> {
         goods.setName(rs.getString("name"));
         goods.setDescription(rs.getString("description"));
         goods.setType(Type.valueOf(rs.getString("type")));
+        goods.setPhoto(rs.getString("photo"));
 
         return goods;
     }

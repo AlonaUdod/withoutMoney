@@ -37,6 +37,24 @@
     </div>
 
     <h4>Бажаєте завантажити фотографію?</h4>
+<!--    <br/>-->
+<!--    <form  method="post" enctype="multipart/form-data">-->
+<!--        <input type="file" name="file">-->
+<!--    </form>-->
+<!--    <br/>-->
+
+
+    <form  method="post" th:action="@{/newGoods}" th:object="${goods}"enctype="multipart/form-data">
+        <input type="file" name="file">
+        той код що і був
+    </form>
+
+        <div>
+        <#if goods.photo??>
+            <img src="/img/${goods.photo}">
+        </#if>
+        </div>
+    <br/>
 
     <input type="submit" value="Створити!"/>
 </body>
